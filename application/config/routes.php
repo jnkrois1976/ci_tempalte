@@ -52,3 +52,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Site';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+if($this->config->item('maintenance_mode')){
+    $route['default_controller'] = 'Maintenance';
+}else{
+    $route['default_controller'] = 'Site';
+}
+$route['404_override'] = 'custom_404';
+$route['translate_uri_dashes'] = FALSE;
+
+// MAPPING FOR SEO FRIENDLY URL's
+$route['smart-home-voice-assistants'] = 'pages/voice';
+$route['smart-home-automation'] = 'pages/automation';
+$route['smart-home-platforms'] = 'pages/platforms';
+$route['smart-home-protocols'] = 'pages/protocols';
+$route['configure-your-smart-home'] = 'pages/configure';
